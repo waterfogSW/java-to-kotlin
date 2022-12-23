@@ -1,4 +1,4 @@
-package com.lannstark.lec10;
+package com.lannstark.lec10.java;
 
 public class JavaCat extends JavaAnimal {
 
@@ -12,4 +12,3 @@ public class JavaCat extends JavaAnimal {
   }
 
 }
-
