@@ -1,6 +1,5 @@
 package com.lannstark.lec17;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
@@ -18,16 +17,18 @@ public class Lec17Main {
         new Fruit("바나나", 2_500),
         new Fruit("수박", 10_000)
     );
+
+    List<Fruit> apples = filterFruits(fruits, (Fruit::isApple));
+    System.out.println(apples);
   }
 
-  private List<Fruit> filterFruits(List<Fruit> fruits, Predicate<Fruit> fruitFilter) {
-    List<Fruit> results = new ArrayList<>();
-    for (Fruit fruit : fruits) {
-      if (fruitFilter.test(fruit)) {
-        results.add(fruit);
-      }
-    }
-    return results;
+  private static List<Fruit> filterFruits(
+      List<Fruit> fruits,
+      Predicate<Fruit> fruitFilter
+  ) {
+    return fruits.stream()
+                 .filter(fruitFilter)
+                 .toList();
   }
 
 }
